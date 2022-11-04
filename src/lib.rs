@@ -87,10 +87,10 @@ fn get_html(tab: &Tab) -> Option<String> {
     Some(str.to_owned())
 }
 
-async fn fetch(url: Url, mut port:u16) -> Option<Arc<wapp::RawData>> {
+async fn fetch(url: Url, port:u16) -> Option<Arc<wapp::RawData>> {
     let browser = Browser::new(
         LaunchOptions::default_builder()
-            .port(Some(port+1))
+            .port(Some(port))
             .sandbox(false)
             .build()
             .unwrap(),
